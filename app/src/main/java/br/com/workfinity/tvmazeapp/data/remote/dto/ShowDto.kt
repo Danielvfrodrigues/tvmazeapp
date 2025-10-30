@@ -33,8 +33,6 @@ fun ShowDto.toEntity() = ShowEntity(
     name = this.name,
     type = this.type,
     language = this.language,
-    genres = this.genres,
     status = this.status,
-    image = this.image.toEntity(),
     summary = this.summary
 )
