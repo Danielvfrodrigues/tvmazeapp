@@ -1,4 +1,4 @@
-package br.com.workfinity.tvmazeapp
+package br.com.workfinity.tvmazeapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
