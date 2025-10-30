@@ -1,5 +1,6 @@
 package br.com.workfinity.tvmazeapp.data.remote.dto
 
+import br.com.workfinity.tvmazeapp.data.local.entity.ShowEntity
 import br.com.workfinity.tvmazeapp.domain.model.Show
 
 data class ShowDto(
@@ -23,5 +24,17 @@ fun ShowDto.toModel() = Show(
     genres = this.genres,
     status = this.status,
     image = this.image.toModel(),
+    summary = this.summary
+)
+
+fun ShowDto.toEntity() = ShowEntity(
+    id = this.id,
+    url = this.url,
+    name = this.name,
+    type = this.type,
+    language = this.language,
+    genres = this.genres,
+    status = this.status,
+    image = this.image.toEntity(),
     summary = this.summary
 )

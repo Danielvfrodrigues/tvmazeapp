@@ -1,5 +1,6 @@
 package br.com.workfinity.tvmazeapp.data.remote.di
 
+import br.com.workfinity.tvmazeapp.data.local.dao.TvMazeDao
 import br.com.workfinity.tvmazeapp.data.remote.TvMazeApiService
 import br.com.workfinity.tvmazeapp.data.remote.repository.TvMazeRepositoryImpl
 import dagger.Module
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModule {
+object DataRemoteModule {
 
     @Provides
     @Singleton
@@ -43,7 +44,11 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideTvMazeRepository(apiService: TvMazeApiService) = TvMazeRepositoryImpl(
-        api = apiService
+    fun provideTvMazeRepository(
+        apiService: TvMazeApiService,
+        tvMazeDao: TvMazeDao,
+    ) = TvMazeRepositoryImpl(
+        api = apiService,
+        dao = tvMazeDao
     )
 }
